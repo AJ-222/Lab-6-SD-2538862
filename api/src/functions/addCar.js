@@ -11,6 +11,9 @@ app.http('addCar', {
         const jsonSet = await fs.readFile(unparsedPath, 'utf8');
         const parsedData = JSON.parse(jsonSet);
         parsedData.push(addedCar)
+
+        const out = JSON.stringify(parsedData);
+        await fs.writeFile(unparsedPath, out, "utf-8");
         return { 
             status: 200, 
             body: "Added car"
