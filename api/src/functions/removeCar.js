@@ -13,7 +13,7 @@ app.http('removeCar', {
         let carList = JSON.parse(jsonSet)
         carID = request.params.carID
         carList.splice(carID, 1)
-        
+
         const out = JSON.stringify(carList)
         await fs.writeFile(unparsedPath,out,"utf-8")
         return {
