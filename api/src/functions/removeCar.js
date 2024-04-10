@@ -11,8 +11,8 @@ app.http('removeCar', {
         const jsonSet = await fs.readFile(unparsedPath, "utf8");
         
         let carList = JSON.parse(jsonSet)
-        carID = request.params.carID
-        carList.splice(carID, 1)
+        carId = request.params.carId
+        carList.splice(carId, 1)
         
         const out = JSON.stringify(carList)
         await fs.writeFile(unparsedPath,out,"utf-8")
