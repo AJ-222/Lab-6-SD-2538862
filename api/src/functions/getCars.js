@@ -8,7 +8,7 @@ app.http('getCars', {
     methods: ['GET'],
     authLevel: 'anonymous',
     handler: async (request, context) => {
-    const jsonSet = await fs.readFile(unparsedPathFilePath, 'utf8');
+    const jsonSet = await fs.readFile(unparsedPath, 'utf8');
     const parsedData = JSON.parse(jsonSet);
         
         return { 
