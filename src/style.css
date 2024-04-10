@@ -101,7 +101,7 @@ footer {
     text-align: center;
     padding: 20px 0;
     /* stick at bottom */
-    position: fixed;
+    position: relative;
     bottom: 0;
     width: 100%;
 }
