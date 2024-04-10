@@ -7,7 +7,7 @@ const unparsedPath = path.resolve(__dirname,'cars.json');
 app.http('addCar', {
     methods: ['POST'],
     handler: async (request, context) => {
-        addedCar = await request.json();
+        const addedCar = await request.json();
         const jsonSet = await fs.readFile(unparsedPath, 'utf8');
         const parsedData = JSON.parse(jsonSet);
         parsedData.push(addedCar)
