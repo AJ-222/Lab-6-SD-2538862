@@ -11,10 +11,13 @@ app.http('removeCar', {
         const jsonSet = await fs.readFile(unparsedPath, "utf8");
         
         let carList = JSON.parse(jsonSet)
+        console.log(carList)
         carId = request.params.carId
+        console.log(carId)
         carList.splice(carId, 1)
         
         const out = JSON.stringify(carList)
+        console.log(out)
         await fs.writeFile(unparsedPath,out,"utf-8")
         return {
             status:200,
