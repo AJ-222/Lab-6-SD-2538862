@@ -6,14 +6,14 @@ const unparsedPath = path.resolve(__dirname,"cars.json");
 
 app.http('removeCar', {
     methods: ['DELETE'],
-    authLevel: `cars/${carId}`,
+    authLevel: `cars/{carId}`,
     handler: async (request, context) => {
         const jsonSet = await fs.readFile(unparsedPath, "utf8");
         
         let carList = JSON.parse(jsonSet)
         carID = request.params.carID
         carList.splice(carID, 1)
-
+        
         const out = JSON.stringify(carList)
         await fs.writeFile(unparsedPath,out,"utf-8")
         return {
